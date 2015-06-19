@@ -1059,7 +1059,7 @@ class PHPExcel_Reader_Excel5 extends PHPExcel_Reader_Abstract implements PHPExce
                             // picture
                             // get index to BSE entry (1-based)
                             $BSEindex = $spContainer->getOPT(0x0104);
-                            if (!isset($escherWorkbook->getDggContainer()->getBstoreContainer())) {
+                            if (!is_object($escherWorkbook->getDggContainer()->getBstoreContainer())) {
                                 throw new PHPExcel_Reader_Exception('Store container does not exist on Dgg container');
                             }
                             $BSECollection = $escherWorkbook->getDggContainer()->getBstoreContainer()->getBSECollection();
